@@ -1,0 +1,8 @@
+<div class="col-md-9 col-xs-12">
+    <mt-menu-item *ngFor="let item of menu | async" [menuItem]="item" (add)="shoppingCart.addItem($event)"></mt-menu-item>
+</div>
+<div class="col-md-3 col-xs-12">
+    <!-- Variável #shoppingCart é criada para que o componente acima possa acessar o método que está no componente
+    shopping-cart -->
+    <mt-shopping-cart #shoppingCart></mt-shopping-cart>
+</div>
