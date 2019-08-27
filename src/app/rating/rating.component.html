@@ -1,0 +1,1 @@
+<i *ngFor="let star of stars; let i = index" class="fa" [class.fa-star]="(star <= rate) || (star <= mOver)" [class.fa-star-o]="star > (rate || mOver)" (click)="rate=i+1; clicked=true; rated.emit()" (mouseover)="mOver=i+1; mouseOver();" (mouseleave)="mOver=0; mouseLeave();"></i>

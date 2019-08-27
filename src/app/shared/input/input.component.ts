@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ContentChild } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { NgModel, FormControlName } from '@angular/forms';
 
 @Component({
   selector: 'mt-input',
@@ -9,14 +9,15 @@ import { NgModel } from '@angular/forms';
 export class InputComponent implements OnInit {
 
   ngAfterContentInit(): void {
-    this.input = this.model
+    this.input = this.model || this.control
     if(this.input === undefined)
-      throw new Error('Esse componente prescisa ser usado com ngModel')
+      throw new Error('Esse componente prescisa ser usado com ngModel ou FormControName')
   }
 
   @Input() label: string
   @Input() errormsg:string
   @ContentChild(NgModel) model : NgModel
+  @ContentChild(FormControlName) control : FormControlName
   input:any
 
   constructor() { }
