@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RestaurantDetailComponent implements OnInit {
 
-  private restaurant:Restaurant
+  private restaurant: Restaurant
   private restaurantId: string
 
   constructor(private restaurantDetailService:RestaurantDetailService, private route: ActivatedRoute) { }

@@ -17,6 +17,8 @@ import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component'
 import { RatingComponent } from './rating/rating.component';
 import { SharedModule } from './shared/shared.module';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -33,12 +35,14 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
     MenuItemComponent,
     ReviewsComponent,
     OrderSummaryComponent,
-    RatingComponent
+    RatingComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     SharedModule.forRoot(),
     HttpModule,
+    BrowserAnimationsModule,
     // CoreModule,
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],

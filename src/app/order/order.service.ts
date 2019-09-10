@@ -1,14 +1,15 @@
 import { Injectable } from "@angular/core";
-import { ShoppingCartComponent } from "app/restaurant-detail/shopping-cart/shopping-cart.component";
 import { CarItem } from "app/restaurant-detail/shopping-cart/cart-item.model";
 import { ShoppingCartService } from "app/restaurant-detail/shopping-cart/shopping-cart.service";
 import { Observable } from "rxjs/Observable";
 import { Http, Headers, RequestOptions } from "@angular/http";
 import { API } from "app/app.api";
 import { Order } from "./order";
+import { SnackbarService } from "app/shared/messages/snackbar/snackbar.service";
 
 @Injectable()
 export class OrderService {
+
     constructor(private cartService: ShoppingCartService, private http: Http) {
 
     }

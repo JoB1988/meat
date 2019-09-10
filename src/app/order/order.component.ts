@@ -5,6 +5,7 @@ import { OrderService } from './order.service';
 import { CarItem } from 'app/restaurant-detail/shopping-cart/cart-item.model';
 import { Order, OrderItem } from './order';
 import { Router } from '@angular/router';
+import { SnackbarService } from 'app/shared/messages/snackbar/snackbar.service';
 
 @Component({
   selector: 'mt-order',
@@ -67,13 +68,13 @@ export class OrderComponent implements OnInit {
     this.orderService.decreaseQty(carItem)
   }
   remove(carItem: CarItem) {
-    this.orderService.remove(carItem)
+    this.orderService.remove(carItem);
+
   }
   checkOrder(order: Order) {
     // debugger
     order.orderItems = this.cartItems().map((item: CarItem) => new OrderItem(item.quantity, item.menuItem.id))
     this.orderService.checkOrder(order).subscribe((menuId:string)=>{
-      console.log(menuId);
       this.orderService.clear();
       this.router.navigate(['/order-summary']);
     })
