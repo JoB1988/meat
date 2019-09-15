@@ -12,7 +12,7 @@ import { Restaurant } from './restaurant/restaurant.model';
 export class RestaurantsComponent implements OnInit {
 
 
-  private restaurants : Restaurant[]
+  public restaurants : Restaurant[]
 
   constructor(private restaurantService: RestaurantService) { }
 

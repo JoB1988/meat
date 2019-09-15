@@ -11,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ReviewsComponent implements OnInit {
 
-    private reviews: Observable<Reviews[]>
+    public reviews: Observable<Reviews[]>
     private restaurantId:string
 
     constructor(private restaurantDetailService: RestaurantDetailService, private activatedRoute: ActivatedRoute) { }
