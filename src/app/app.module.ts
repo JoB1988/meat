@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -19,6 +19,7 @@ import { SharedModule } from './shared/shared.module';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -41,12 +42,15 @@ import { NotFoundComponent } from './not-found/not-found.component';
   imports: [
     BrowserModule,
     SharedModule.forRoot(),
-    HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
-    // CoreModule,
-    RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
+    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules })
   ],
-  providers: [{provide:LOCALE_ID, useValue:'pt-BR'}],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
+    // padrão angularJS, ele retorna o conteudo, a navegação sempre vai ocorrer
+    // { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
