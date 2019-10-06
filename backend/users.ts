@@ -7,7 +7,7 @@ export class User {
         return another !== undefined && another.email === this.email && another.password === this.password 
     }
 }
-export const users = {
+export const users: { [key:string]: User } = {
     'juliana@gmail.com': new User('juliana@gmail.com', 'Juliana', '123456'),
     'jonathan@gmail.com': new User('jonathan@gmail.com', 'Jonathan', '654231')
 }
